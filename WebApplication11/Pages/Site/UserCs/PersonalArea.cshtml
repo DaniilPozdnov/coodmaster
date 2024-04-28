@@ -1,0 +1,121 @@
+@page
+@model WebApplication11.Pages.Site.UserCs.Pages_Site_UserCs_PersonalArea
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PersonalAreaPage</title>
+</head>
+<body>
+    <!-- <p><big><big><big><big><font size="44">Центр управления</font><br/><font size="44" color = "#5ca174"><b>вашими домами</b></font></big></big></big></big></p>
+                <p><font size = "5" color="#808080">Удобная платформа для взаимодействия жильцов и</br> управляющих компаний. Обмен сообщениями, отчеты и</br> уведомления в одном месте.</font></p>-->
+
+    <div class="hello_message">
+        <p align="center">
+            <big>
+                <big>
+                    <big>
+                        <big>
+                            <font size="7">Здесь вы можете отслеживать статус обращений:</font>
+                        </big>
+                    </big>
+                </big>
+            </big>
+        </p>
+    </div>
+  <div class="request">
+    <div class="services">
+        <p align="center"><font size="5" color="#fff"><b>Обращение №1</b></font></br></br></br><font size="4" color="#fff"><b>Тема:</b></font><font size="4" color="#fff"> тема обращения</font></br></br></br></br></br></br></br></br></br></br></br><font size="3" color="#000000">От </font><font size="3" color="#000000"><b>12.12.2001</b></font></p>
+    </div>
+    <div class="services">
+        <p align="center"><font size="5" color="#fff"><b>Обращение №2</b></font></br></br></br><font size="4" color="#fff"><b>Тема:</b></font><font size="4" color="#fff"> тема обращения</font></br></br></br></br></br></br></br></br></br></br></br><font size="3" color="#000000">От </font><font size="3" color="#000000"><b>12.12.2001</b></font></p>
+    </div>
+    <div class="services">
+        <p align="center"><font size="5" color="#fff"><b>Обращение №3</b></font></br></br></br><font size="4" color="#fff"><b>Тема:</b></font><font size="4" color="#fff"> тема обращения</font></br></br></br></br></br></br></br></br></br></br></br><font size="3" color="#000000">От </font><font size="3" color="#000000"><b>12.12.2001</b></font></p>
+    </div>
+   </div>
+</body>
+<style type="text/css">
+
+    .request {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .hello_message {
+        display: flex;
+        justify-content:center;
+    }
+
+
+ul {
+    list-style: none;
+}
+
+
+a:hover{
+    color: #5ca174;
+    text-decoration: none;
+}
+
+li{
+    display: inline;
+}
+
+body {
+    background-color: #E2F9EA;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rows {
+    float: left;
+    width: 122px;
+    height: 452px;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 37px;
+    margin-left: 10px;
+}
+
+.separator {
+    margin-top: 129px;
+    border-left: 6px solid lightgreen;
+    height: 86%;
+    position: absolute;
+    left: 150px; 
+    top: 0;
+    margin-left: 23px;
+}
+
+
+button:hover{
+    color: #ffffff;
+    background-color: #3f7251;
+}
+
+
+.services {
+    width: 200px;
+    background-color: #69a07c;
+    height: 400px;
+    padding: 20px;
+    border-radius: 37px;
+    margin-top: 100px;
+}
+
+
+.button_123 {
+    display: flex;
+    justify-content: center;
+}
+</style>
+</html>

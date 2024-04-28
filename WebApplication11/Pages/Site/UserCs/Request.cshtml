@@ -1,0 +1,242 @@
+@page
+@model WebApplication11.Pages.Site.UserCs.Pages_Site_UserCs_Request
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegistrationPage</title>
+</head>
+<body>
+    <div class="reg" align="center">
+        <div class="name">
+            <p><font size = "5"><b>Новое обращение</b></font></p>
+        </div>
+        <div class="whom">
+            <label for="whom">Получатель:           </label>
+            <input type="text" id="whom" name="whom" required>
+        </div>
+
+        <div class = "Line"></div>
+
+        <div class="subject">
+            <label for="subject">Тема:                      </label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class = "Line"></div>
+
+        <div class="text_of_message">
+            <label for="text_of_message">Текст обращения: </label>
+            <input type="text" id="text_of_message" name="text_of_message" required>
+        </div>
+
+        <div class = "Line"></div>
+
+        <div class="remember1">
+          
+            <label for="remember1"><p><font size= "2" color="#808080"><a href="#" class="remember_a">Ваши координаты:</a></font></p>
+                <p>Широта: <span id="latitude"></span></p>
+                <p>Долгота: <span id="longitude"></span></p>
+                <button onclick="myFunction()">прикрепить их</button>
+                <script>
+                    function myFunction() {
+                      alert("Вы прикрепили координаты к жалобе");
+                    }
+                    </script>
+
+              
+                <script>
+                    function showPosition(position) {
+                      document.getElementById('latitude').innerText = position.coords.latitude;
+                      document.getElementById('longitude').innerText = position.coords.longitude;
+                    }
+                
+                    function showError(error) {
+                      switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                          alert("User denied the request for Geolocation.");
+                          break;
+                        case error.POSITION_UNAVAILABLE:
+                          alert("Location information is unavailable.");
+                          break;
+                        case error.TIMEOUT:
+                          alert("The request to get user location timed out.");
+                          break;
+                        case error.UNKNOWN_ERROR:
+                          alert("An unknown error occurred.");
+                          break;
+                      }
+                    }
+                
+                    if (navigator.geolocation) {
+                      navigator.geolocation.getCurrentPosition(showPosition, showError);
+                    } else {
+                      alert("Geolocation is not supported by this browser.");
+                    }
+                  </script>
+            </div>
+
+        <div class="remember">
+          
+            <label for="remember"><p><font size= "2" color="#808080"><a href="#" class="remember_a">Желаете <b>прикрепить файл</b>?</a></font></p>
+                
+        </div>
+
+        <div class = "checkbox">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Я даю согласие на обработку данных</label>
+        </div>
+
+        <div class="b">
+            <button onclick="myFunction()" class="button"><font size="5"><b>Продолжить</b></font></button>
+            <script>
+                function myFunction() {
+                    alert("Обращение было отправлено!");
+                    location.reload();
+                }
+            </script>
+        </div>
+    </div>
+
+</div>
+    
+</body>
+<style type="text/css">
+    ul {
+        list-style: none;
+    }
+
+        a:hover {
+            color: #5ca174;
+            text-decoration: none;
+        }
+
+    li {
+        display: inline;
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    body {
+        background-color: #E2F9EA;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+    .reg {
+        float: left;
+        width: 400px;
+        background: #ffffff;
+        height: 650px;
+        padding: 20px;
+        margin-top: 125px;
+        border-radius: 37px;
+        margin-left: 430px;
+    }
+
+    .whom {
+        margin-top: 35px;
+    }
+
+
+    .subject {
+        margin-top: 35px;
+    }
+
+    .text_of_message {
+        margin-top: 35px;
+    }
+
+    .remember {
+        margin-top: 20px;
+    }
+
+    .Line {
+        height: 3px;
+        width: 315px;
+        background-color: green;
+    }
+
+    .remember_a {
+        font-size: 17px;
+        color: #293133;
+        text-decoration: none;
+    }
+
+    .button {
+        width: 250px;
+        height: 55px;
+        background-color: #69a07c;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 15px;
+        color: #ffeded;
+        margin-top: 8px;
+    }
+
+    button:hover {
+        color: #ffffff;
+        background-color: #3f7251;
+    }
+
+    .remember1 {
+        margin-top: 20px;
+    }
+
+    .checkbox {
+        margin-top: 20px;
+    }
+
+    .rows {
+        float: left;
+        width: 122px;
+        height: 452px;
+        padding: 20px;
+        margin-top: 25px;
+        border-radius: 37px;
+        margin-left: 10px;
+    }
+
+    .separator {
+        margin-top: 129px;
+        border-left: 6px solid lightgreen;
+        height: 86%;
+        position: absolute;
+        left: 150px;
+        top: 0;
+        margin-left: 23px;
+    }
+
+
+    button:hover {
+        color: #ffffff;
+        background-color: #3f7251;
+    }
+
+    .button_abs {
+        width: 250px;
+        height: 55px;
+        background-color: #69a07c;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 15px;
+        color: #ffeded;
+        margin-top: 43px;
+    }
+
+    button:hover {
+        color: #ffffff;
+        background-color: #3f7251;
+    }
+
+    .picture {
+        margin-left: 999px;
+        margin-top: 120px;
+    }
+</style>
+</html>

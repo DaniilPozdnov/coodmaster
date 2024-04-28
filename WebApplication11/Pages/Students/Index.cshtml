@@ -1,0 +1,112 @@
+﻿@page
+@model WebApplication11.Pages.Students.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<html>
+<body>
+<h1>Жители</h1>
+
+<p>
+    <a asp-page="Create">Зарегестрировать нового жителя</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ФИО
+            </th>
+            <th>
+                Дата рождения
+            </th>
+            <th>
+                Съёмная квартира 
+            </th>
+            <th>
+                Квар-плата
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Student) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
+    <style type="text/css">
+        .MainPage_item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        a:hover {
+            color: #5ca174;
+            text-decoration: none;
+        }
+
+        li {
+            display: inline;
+        }
+
+        body {
+            background-color: #E2F9EA;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .containerMain_item {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        button:hover {
+            color: #ffffff;
+            background-color: #3f7251;
+        }
+
+        .button {
+            width: 250px;
+            height: 55px;
+            background-color: #69a07c;
+            margin-top: 25px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 15px;
+            color: #ffeded;
+        }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+    <link rel="stylesheet" type = "text/css" href = "user_information_of_requestS.css">
+</head>
+    <body>
+        <div class="rows">
+            <a href = "PersonalArea.html" class="button_a"><button class="buton"><font size="3"><b>Мои обращения</b></font></button></a>
+            <a href = "Request.html" class="button_a"><button class="buton"><font size="3"><b>Создать новое обращение</b></font></button></a>
+            <a href = "UserSettings.html" class="button_a"><button class="buton"><font size="3"><b>Настройки</b></font></button></a>
+            <a href = "chat.html" class="button_a"><button class="buton"><font size="3"><b>Чат дома</b></font></button></a>
+        </div>
+
+        <div class="MAIN">
+            <div class="obr"><p><font size = "6" color = "#3f7251"><b>Обращение №1</b></font></p></div>
+        </div>
+        
+            <br>
+            <div class="obr1"><h3>Обращение созданно -------------------------------------------------------------------------------------------------------------------- 1 мая 2022, 13:10</h3></div>
+            <br>
+            <div class="obr2"><h3>Обращение отправленно в управляющую компанию ---------------------------------------------------------------------- 1 мая 2022, 13:10</h3></div>
+            <br>
+            <div class="obr3"><h3>Обращение рассматривается --------------------------------------------------------------------------------------------------------- 1 мая 2022, 13:10</h3></div>
+            <br>
+            <div class="obr4"><h3>Управляющая компания готова принять меры,скоро с вами свяжутся --------------------------------------------- 1 мая 2022, 13:10</h3></div>
+        
+    
+   <div class="Name"> <h1>Чат с управляющей компанией</h1> </div>
+<div class="chat"> 
+
+    <div id="chat-messages">
+  <!-- Здесь будут отображаться сообщения в чате -->
+    </div>
+    <form id="message-form">
+    <input type="file" id="photo-upload" accept="image/*">
+    <input type="text" id="message-input" placeholder="Введите ваше сообщение...">
+     <button type="submit">Отправить</button>
+    </form>
+
+<script>
+   document.getElementById('message-form').addEventListener('submit', function(event) {
+event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+var messageInput = document.getElementById('message-input');
+var photoInput = document.getElementById('photo-upload');
+
+var message = messageInput.value;
+var photo = photoInput.files[0]; // Получаем выбранный файл
+
+sendMessage(message, photo);
+messageInput.value = ''; // Очищаем поле ввода сообщения
+photoInput.value = ''; // Очищаем поле ввода фотографии
+});
+
+function sendMessage(message, photo) {
+// Здесь отправляем сообщение и фотографию на сервер
+
+// Предположим, сервер возвращает JSON-ответ с новым сообщением и путем к загруженной фотографии
+var serverResponse = {
+message: "Ваше сообщение успешно отправлено!",
+photoPath: "/path/to/uploaded/photo.jpg"
+};
+
+// Здесь обрабатываем ответ от сервера
+processServerResponse(serverResponse);
+}
+
+function processServerResponse(response) {
+// Обрабатываем JSON-ответ от сервера
+var chatMessages = document.getElementById('chat-messages');
+var newMessageDiv = document.createElement('div');
+newMessageDiv.textContent = response.message;
+chatMessages.appendChild(newMessageDiv);
+
+// Загружаем фотографию в чат, если таковая имеется
+if (response.photoPath) {
+var newImage = document.createElement('img');
+newImage.src = response.photoPath;
+chatMessages.appendChild(newImage);
+    }
+        }
+  </script>
+</div>
+  
+</body>
+</html>

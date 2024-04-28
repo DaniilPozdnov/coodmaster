@@ -1,0 +1,94 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using WebApplication11.Data.Identity;
+@inject SignInManager<ApplicationIdentityUser> SignInManager
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+    <link rel="stylesheet" type="text/css" href="main_pageS.css">
+</head>
+<body> 
+<div class="MainPage_item">
+    <div class="containerMain">
+        <div class="containerMain_item"
+            <p><big><big><big><big><font size="44">Центр управления</font><br /><font size="44" color="#5ca174"><b>вашими домами</b></font></big></big></big></big></p>
+            <p><font size="5" color="#808080">Удобная платформа для взаимодействия жильцов и</br> управляющих компаний. Обмен сообщениями, отчеты и</br> уведомления в одном месте.</font></p>
+        </div>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                
+            }
+            else
+            {
+                <a asp-area="Identity" asp-page="/Account/Login"><button class="button"><font size="5"><b>Авторизация</b></font></button></a>
+            }
+    </div>
+    <div class="picture">
+        <img src="https://smart-tula.ru/upload/webp/resize_cache/a84/w8cdemjy5o9pfr85dd1h4b34ln6mrth2/450_450_1/untitled_1.webp" height="800px" width="650px">
+    </div>
+</div>
+</body>
+<style type="text/css">
+    .MainPage_item {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+        a:hover {
+            color: #5ca174;
+            text-decoration: none;
+        }
+
+    li {
+        display: inline;
+    }
+
+    body {
+        background-color: #E2F9EA;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .containerMain_item {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    button:hover {
+        color: #ffffff;
+        background-color: #3f7251;
+    }
+
+    .button {
+        width: 250px;
+        height: 55px;
+        background-color: #69a07c;
+        margin-top: 25px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 15px;
+        color: #ffeded;
+    }
+</style>
+</html>
+

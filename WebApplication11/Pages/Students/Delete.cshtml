@@ -1,0 +1,107 @@
+﻿@page
+@model WebApplication11.Pages.Students.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<html>
+<body>
+
+<h1>Удалить</h1>
+
+<div>
+    <h4>Жителя</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ФИО
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Дата Рождения
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.BirthDate)
+        </dd>
+        <dt class="col-sm-2">
+            Съёмная квартира
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Deleted)
+        </dd>
+        <dt class="col-sm-2">
+            Кварт-плата
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Price)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Student.Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Вернуться</a>
+    </form>
+</div>
+</body>
+</html>
+<style type="text/css">
+        .MainPage_item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        a:hover {
+            color: #5ca174;
+            text-decoration: none;
+        }
+
+        li {
+            display: inline;
+        }
+
+        body {
+            background-color: #E2F9EA;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .containerMain_item {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        button:hover {
+            color: #ffffff;
+            background-color: #3f7251;
+        }
+
+        .button {
+            width: 250px;
+            height: 55px;
+            background-color: #69a07c;
+            margin-top: 25px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 15px;
+            color: #ffeded;
+        }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

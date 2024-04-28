@@ -1,0 +1,187 @@
+@page
+@model WebApplication11.Pages.Site.UserCs.Pages_Site_UserCs_chat
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+
+</head>
+<body>
+    
+
+  <!-- Здесь будут отображаться сообщения в чате -->
+
+<div class="chat-messages" id="chat-messages" >
+    <h1 class="chat-messages_h1">Чат д. 66, ул. Центральная</h1>
+
+    <div class="down_text" >
+        <form id="message-form">
+            <input type="file" id="photo-upload" accept="image/*" >
+            <input type="text" id="message-input" placeholder="Введите ваше сообщение...">
+            <button class="button_abc" type="submit">Отправить</button>
+            </form>
+    
+    
+    
+        <script>
+        document.getElementById('message-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+    
+        var messageInput = document.getElementById('message-input');
+        var photoInput = document.getElementById('photo-upload');
+    
+        var message = messageInput.value;
+        var photo = photoInput.files[0]; // Получаем выбранный файл
+    
+        sendMessage(message, photo);
+        messageInput.value = ''; // Очищаем поле ввода сообщения
+        photoInput.value = ''; // Очищаем поле ввода фотографии
+        });
+    
+        function sendMessage(message, photo) {
+            fetch('https://example.com/api/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+           
+            },
+            body: JSON.stringify({ message: message, photo: photo })
+            })
+            .then(response => response.json())
+            .then(data => processServerResponse(data))
+            .catch(error => console.error('Ошибка отправки запроса:', error));
+     // Здесь отправляем сообщение и фотографию на сервер
+    
+     // Предположим, сервер возвращает JSON-ответ с новым сообщением и путем к загруженной фотографии
+        var serverResponse = {
+  
+        message:"Информация отправленна на обработку, ждите. с вами свяжуться"
+     
+        };
+    
+    
+     // Здесь обрабатываем ответ от сервера
+        processServerResponse(serverResponse);
+        }
+     
+        function processServerResponse(response) {
+     // Обрабатываем JSON-ответ от сервера
+        var chatMessages = document.getElementById('chat-messages');
+        var newMessageDiv = document.createElement('div');
+        newMessageDiv.textContent = response.message;
+        chatMessages.appendChild(newMessageDiv);
+    
+        // Загружаем фотографию в чат, если таковая имеется
+        if (response.photoPath) {
+        var newImage = document.createElement('img');
+        newImage.src = response.photoPath;
+        chatMessages.appendChild(newImage);
+            }
+                }
+    </script>
+  </div>
+</div>
+</body>
+<style type = "text/css">
+        a:hover {
+            color: #5ca174;
+            text-decoration: none;
+        }
+
+    li {
+        display: inline;
+    }
+
+    body {
+        background-color: #E2F9EA;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+
+    .separator {
+        margin-top: 100px;
+        border-left: 6px solid lightgreen;
+        height: 90%;
+        position: absolute;
+        left: 150px;
+        top: 0;
+    }
+
+    .rectangle {
+        text-decoration-color: #134E2F;
+        width: 350px;
+        height: 60px;
+        border-radius: 30px;
+        background-color: #63EA90;
+        margin: 20px;
+        float: left;
+        text-align: center;
+    }
+
+    .column {
+        margin-top: 40px;
+        float: left;
+        width: 20%;
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .rows {
+        float: left;
+        width: 122px;
+        height: 452px;
+        padding: 20px;
+        border-radius: 37px;
+        margin-left: 10px;
+    }
+
+
+    .button_abc {
+        width: 100px;
+        height: 50px;
+        background-color: #69a07c;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 15px;
+        color: #ffeded;
+        margin: 20px;
+        margin-left: 25px;
+    }
+
+
+    button:hover {
+        color: #ffffff;
+        background-color: #3f7251;
+    }
+
+    .separator {
+        margin-top: 129px;
+        border-left: 6px solid lightgreen;
+        height: 90%;
+        position: absolute;
+        left: 150px;
+        top: 0;
+        margin-left: 23px;
+    }
+
+    .chat-messages_h1 {
+        padding-bottom: 300px
+    }
+
+    .chat-messages {
+        display: flex;  
+        align-items: center;
+        flex-direction: column;
+    }
+</style>
+</html>

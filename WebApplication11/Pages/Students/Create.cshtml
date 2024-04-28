@@ -1,0 +1,107 @@
+﻿@page
+@model WebApplication11.Pages.Students.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<html>
+<body>
+<h1>Регистрация</h1>
+
+<h4>Жителя</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Student.Name" class="control-label">ФИО</label>
+                <input asp-for="Student.Name" class="form-control" />
+                <span asp-validation-for="Student.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.BirthDate" class="control-label">Дата Рождения</label>
+                <input asp-for="Student.BirthDate" class="form-control" />
+                <span asp-validation-for="Student.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Student.Deleted" /> Съёмная квартира
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Price" class="control-label">Квар-плата</label>
+                <input asp-for="Student.Price" class="form-control" />
+                <span asp-validation-for="Student.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться</a>
+</div>
+    
+</body>
+</html>
+  <style type="text/css">
+        .MainPage_item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        a:hover {
+            color: #5ca174;
+            text-decoration: none;
+        }
+
+        li {
+            display: inline;
+        }
+
+        body {
+            background-color: #E2F9EA;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .containerMain_item {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        button:hover {
+            color: #ffffff;
+            background-color: #3f7251;
+        }
+
+        .button {
+            width: 250px;
+            height: 55px;
+            background-color: #69a07c;
+            margin-top: 25px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 15px;
+            color: #ffeded;
+        }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
